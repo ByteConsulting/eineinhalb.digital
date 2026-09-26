@@ -22,12 +22,26 @@ npm run build
 npm start
 ```
 
+## Draft-Passwortschutz
+
+Solange `SITE_PASSWORD` gesetzt ist, verlangt die Site HTTP Basic Auth (Middleware).
+
+| Variable | Default | Bedeutung |
+|---|---|---|
+| `SITE_USER` | `draft` | Benutzername im Login-Dialog |
+| `SITE_PASSWORD` | – | Passwort; **ohne Variable = öffentlich** |
+
+Lokal: Werte in `.env.local` (siehe `.env.example`).  
+Coolify: dieselben Env-Vars in der App setzen und neu deployen.  
+Für den öffentlichen Launch: `SITE_PASSWORD` in Coolify entfernen/leeren.
+
 ## Coolify
 
 1. Repo anbinden, Build mit dem mitgelieferten `Dockerfile`
 2. Port **43127** exponieren
 3. Domain + TLS setzen
-4. Optional Staging-App parallel
+4. Env: `SITE_USER` + `SITE_PASSWORD` für den Draft-Schutz
+5. Optional Staging-App parallel
 
 ## Inhalte & Preise
 
