@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
-/* Palette aligned to brand lockup */
+/* Palette from official logo: navy + cyan */
 :root {
-  --ink: #1a2e24;
-  --ink-soft: #3d5248;
-  --forest: #254130;
-  --forest-deep: #1a3024;
-  --copper: #c2783e;
-  --copper-deep: #a56232;
-  --charcoal: #58595b;
-  --cream: #fdfcf9;
-  --sand: #f3efe6;
-  --mist: #f7f5f0;
-  --paper: #fdfcf9;
+  --ink: #002848;
+  --ink-soft: #3a5570;
+  --forest: #003764;
+  --forest-deep: #002848;
+  --copper: #2e8baa;
+  --copper-deep: #24748f;
+  --charcoal: #5a6b7a;
+  --cream: #f7f9fb;
+  --sand: #eef3f7;
+  --mist: #f4f7fa;
+  --paper: #f7f9fb;
   --line: color-mix(in oklab, var(--forest) 12%, transparent);
-  --glow-copper: color-mix(in oklab, var(--copper) 18%, transparent);
+  --glow-copper: color-mix(in oklab, var(--copper) 20%, transparent);
   --glow-forest: color-mix(in oklab, var(--forest) 10%, transparent);
   --background: var(--paper);
   --foreground: var(--ink);
@@ -71,19 +71,18 @@
       linear-gradient(180deg, var(--cream) 0%, var(--mist) 55%, var(--sand) 100%);
   }
 
-  /* Light full-bleed hero plane — matches logo cream field */
   .bg-hero-plane {
     background-color: var(--cream);
     background-image:
       radial-gradient(ellipse 80% 60% at 70% 20%, var(--glow-copper), transparent 60%),
       radial-gradient(ellipse 50% 40% at 15% 80%, var(--glow-forest), transparent 55%),
-      linear-gradient(165deg, #fffefb 0%, var(--cream) 45%, var(--sand) 100%);
+      linear-gradient(165deg, #ffffff 0%, var(--cream) 45%, var(--sand) 100%);
   }
 
   .bg-band-forest {
     background-color: var(--forest);
     background-image:
-      radial-gradient(600px 300px at 90% 0%, color-mix(in oklab, var(--copper) 25%, transparent), transparent 60%);
+      radial-gradient(600px 300px at 90% 0%, color-mix(in oklab, var(--copper) 28%, transparent), transparent 60%);
   }
 
   .text-balance {

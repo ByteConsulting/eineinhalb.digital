@@ -1,10 +1,10 @@
 export const site = {
-  name: "ein-ein-halb digital",
-  shortName: "ein-ein-halb",
+  name: "eineinhalb Digital",
+  shortName: "eineinhalb",
   claim: "Zukunftssicher aufgestellt.",
   description:
     "Online Marketing Beratung für Marketingabteilungen: Strategie, SEO/GEO/Content, Workshops – und technische Umsetzung inklusive Automatisierung.",
-  email: "hallo@ein-ein-halb.digital",
+  email: "hallo@eineinhalb.digital",
   phone: "+49 (0) 221 0000000",
 };
 

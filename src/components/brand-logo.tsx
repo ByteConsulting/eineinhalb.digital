@@ -1,25 +1,23 @@
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const sizeMap = {
-  sm: { className: "h-10 w-auto", width: 160, height: 160 },
-  md: { className: "h-12 w-auto sm:h-14", width: 200, height: 200 },
-  lg: { className: "h-24 w-auto sm:h-28", width: 320, height: 320 },
-  hero: { className: "h-32 w-auto sm:h-40 md:h-48", width: 480, height: 480 },
+  sm: "h-9",
+  md: "h-12 sm:h-14",
+  lg: "h-16 sm:h-20",
+  hero: "h-24 sm:h-28 md:h-[7.5rem]",
 } as const;
 
 type BrandLogoProps = {
   className?: string;
   priority?: boolean;
   href?: string | null;
-  /** Full lockup (mark + wordmark). Default — never crop. */
   size?: keyof typeof sizeMap;
 };
 
 /**
- * Renders the official lockup PNG as-is.
- * The asset already contains mark + “ein-ein-halb digital” — do not crop or duplicate text.
+ * Official lockup as SVG (transparent artwork, scales cleanly).
+ * Source: public/brand/logo.svg (embedded transparent PNG in viewBox).
  */
 export function BrandLogo({
   className,
@@ -27,16 +25,20 @@ export function BrandLogo({
   href = "/",
   size = "md",
 }: BrandLogoProps) {
-  const dims = sizeMap[size];
-
   const mark = (
-    <Image
-      src="/brand/logo.png"
-      alt="ein-ein-halb digital"
-      width={dims.width}
-      height={dims.height}
-      priority={priority}
-      className={cn(dims.className, "object-contain object-left", className)}
+    // eslint-disable-next-line @next/next/no-img-element -- brand SVG lockup
+    <img
+      src="/brand/logo.svg"
+      alt="eineinhalb Digital"
+      width={612}
+      height={302}
+      decoding="async"
+      fetchPriority={priority ? "high" : "auto"}
+      className={cn(
+        sizeMap[size],
+        "w-auto max-w-full object-contain object-left",
+        className,
+      )}
     />
   );
 
@@ -44,7 +46,7 @@ export function BrandLogo({
   return (
     <Link
       href={href}
-      aria-label="ein-ein-halb digital – Startseite"
+      aria-label="eineinhalb Digital – Startseite"
       className="inline-flex shrink-0"
     >
       {mark}
