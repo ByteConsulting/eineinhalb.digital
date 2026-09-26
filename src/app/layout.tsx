@@ -1,5 +1,4 @@
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { SiteShell } from "@/components/site-shell";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
 import { Figtree, Instrument_Serif } from "next/font/google";
@@ -40,10 +39,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${figtree.variable} ${instrument.variable} h-full`}>
-      <body className="min-h-full bg-atmosphere text-ink antialiased">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+      <body className="flex min-h-full flex-col bg-atmosphere text-ink antialiased">
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
