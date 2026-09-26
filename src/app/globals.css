@@ -1,18 +1,21 @@
 @import "tailwindcss";
 
+/* Palette aligned to brand lockup */
 :root {
-  --ink: #142820;
-  --ink-soft: #2a3d34;
-  --forest: #1b3a2f;
-  --forest-deep: #0f241c;
-  --copper: #c06a3a;
-  --copper-deep: #9a5230;
-  --sand: #e7ebe3;
-  --mist: #f3f6f1;
-  --paper: #f7f9f5;
-  --line: color-mix(in oklab, var(--forest) 14%, transparent);
-  --glow-copper: color-mix(in oklab, var(--copper) 22%, transparent);
-  --glow-forest: color-mix(in oklab, var(--forest) 12%, transparent);
+  --ink: #1a2e24;
+  --ink-soft: #3d5248;
+  --forest: #254130;
+  --forest-deep: #1a3024;
+  --copper: #c2783e;
+  --copper-deep: #a56232;
+  --charcoal: #58595b;
+  --cream: #fdfcf9;
+  --sand: #f3efe6;
+  --mist: #f7f5f0;
+  --paper: #fdfcf9;
+  --line: color-mix(in oklab, var(--forest) 12%, transparent);
+  --glow-copper: color-mix(in oklab, var(--copper) 18%, transparent);
+  --glow-forest: color-mix(in oklab, var(--forest) 10%, transparent);
   --background: var(--paper);
   --foreground: var(--ink);
 }
@@ -26,12 +29,14 @@
   --color-forest-deep: var(--forest-deep);
   --color-copper: var(--copper);
   --color-copper-deep: var(--copper-deep);
+  --color-charcoal: var(--charcoal);
+  --color-cream: var(--cream);
   --color-sand: var(--sand);
   --color-mist: var(--mist);
   --color-paper: var(--paper);
   --color-line: var(--line);
-  --font-sans: var(--font-figtree);
-  --font-display: var(--font-instrument);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-syne);
 }
 
 @layer base {
@@ -42,34 +47,43 @@
   body {
     background: var(--background);
     color: var(--foreground);
-    font-family: var(--font-figtree), system-ui, sans-serif;
+    font-family: var(--font-outfit), system-ui, sans-serif;
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--copper) 35%, white);
+    background: color-mix(in oklab, var(--copper) 32%, white);
     color: var(--forest-deep);
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-instrument), ui-serif, Georgia, serif;
+    font-family: var(--font-syne), system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
   }
 
   .bg-atmosphere {
-    background-color: var(--paper);
+    background-color: var(--cream);
     background-image:
-      radial-gradient(1200px 600px at 10% -10%, var(--glow-forest), transparent 60%),
-      radial-gradient(900px 500px at 90% 0%, var(--glow-copper), transparent 55%),
-      linear-gradient(180deg, var(--mist) 0%, var(--paper) 42%, var(--sand) 100%);
+      radial-gradient(900px 480px at 85% -5%, var(--glow-copper), transparent 55%),
+      radial-gradient(700px 420px at 5% 15%, var(--glow-forest), transparent 50%),
+      linear-gradient(180deg, var(--cream) 0%, var(--mist) 55%, var(--sand) 100%);
   }
 
+  /* Light full-bleed hero plane — matches logo cream field */
   .bg-hero-plane {
-    background-color: var(--forest-deep);
+    background-color: var(--cream);
     background-image:
-      radial-gradient(800px 420px at 15% 20%, color-mix(in oklab, var(--copper) 28%, transparent), transparent 60%),
-      radial-gradient(700px 380px at 85% 10%, color-mix(in oklab, #7aa889 22%, transparent), transparent 55%),
-      linear-gradient(160deg, #10241c 0%, #1b3a2f 48%, #243f34 100%);
+      radial-gradient(ellipse 80% 60% at 70% 20%, var(--glow-copper), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 15% 80%, var(--glow-forest), transparent 55%),
+      linear-gradient(165deg, #fffefb 0%, var(--cream) 45%, var(--sand) 100%);
+  }
+
+  .bg-band-forest {
+    background-color: var(--forest);
+    background-image:
+      radial-gradient(600px 300px at 90% 0%, color-mix(in oklab, var(--copper) 25%, transparent), transparent 60%);
   }
 
   .text-balance {
@@ -77,34 +91,48 @@
   }
 
   .reveal {
-    animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: rise-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .reveal-delay-1 {
-    animation-delay: 0.12s;
+    animation-delay: 0.1s;
   }
 
   .reveal-delay-2 {
-    animation-delay: 0.24s;
+    animation-delay: 0.22s;
   }
 
   .reveal-delay-3 {
-    animation-delay: 0.36s;
+    animation-delay: 0.34s;
+  }
+
+  .float-soft {
+    animation: float-soft 7s ease-in-out infinite;
   }
 
   .draw-line {
-    animation: draw 1.2s ease-out both;
+    animation: draw 1.1s ease-out both;
   }
 }
 
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 
@@ -124,7 +152,8 @@
   .reveal-delay-1,
   .reveal-delay-2,
   .reveal-delay-3,
-  .draw-line {
+  .draw-line,
+  .float-soft {
     animation: none;
   }
 }

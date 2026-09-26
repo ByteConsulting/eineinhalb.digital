@@ -24,25 +24,20 @@ export function LoginForm({ next }: { next: string }) {
           autoFocus
           autoComplete="current-password"
           placeholder="Zugangscode eingeben"
-          className="mt-3 w-full rounded-md border border-white/15 bg-white/8 px-4 py-3.5 text-base text-white outline-none placeholder:text-white/35 focus:border-copper/60 focus:ring-2 focus:ring-copper/40"
+          className="mt-3 w-full border border-line bg-cream px-4 py-3.5 text-base text-ink outline-none placeholder:text-charcoal/45 focus:border-copper focus:ring-2 focus:ring-copper/25"
         />
       </label>
 
       {state?.error ? (
         <p
           role="alert"
-          className="rounded-md border border-copper/40 bg-copper/15 px-3 py-2 text-sm text-white/90"
+          className="border border-copper/40 bg-copper/10 px-3 py-2 text-sm text-forest"
         >
           {state.error}
         </p>
       ) : null}
 
-      <Button
-        type="submit"
-        size="lg"
-        className="w-full"
-        disabled={pending}
-      >
+      <Button type="submit" size="lg" className="w-full" disabled={pending}>
         {pending ? "Prüfen…" : "Site freischalten"}
       </Button>
     </form>

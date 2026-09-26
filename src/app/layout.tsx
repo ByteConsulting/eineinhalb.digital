@@ -1,19 +1,19 @@
 import { SiteShell } from "@/components/site-shell";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
-import { Figtree, Instrument_Serif } from "next/font/google";
+import { Outfit, Syne } from "next/font/google";
 import "./globals.css";
 
-const figtree = Figtree({
-  variable: "--font-figtree",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
   display: "swap",
 });
 
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${figtree.variable} ${instrument.variable} h-full`}>
+    <html lang="de" className={`${outfit.variable} ${syne.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-atmosphere text-ink antialiased">
         <SiteShell>{children}</SiteShell>
       </body>

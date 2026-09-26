@@ -1,8 +1,9 @@
+import { BrandGeometry } from "@/components/brand-geometry";
+import { BrandLogo } from "@/components/brand-logo";
 import {
   CheckList,
   Container,
   CtaBand,
-  Eyebrow,
   LinkTile,
   PriceCard,
   Section,
@@ -20,53 +21,42 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="bg-hero-plane text-white">
-          <Container className="grid min-h-[calc(100svh-4.5rem)] items-end gap-10 pb-14 pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pb-20 lg:pt-20">
-            <div>
-              <p className="reveal text-xs font-semibold uppercase tracking-[0.28em] text-copper">
-                {site.name}
-              </p>
-              <h1 className="reveal reveal-delay-1 mt-5 font-display text-[clamp(2.6rem,6vw,4.6rem)] leading-[0.95] text-balance">
-                {site.claim}
-                <span className="mt-3 block text-[0.55em] font-sans font-semibold tracking-normal text-white/85">
-                  Online Marketing Beratung für die Marketingabteilung.
-                </span>
-              </h1>
-              <p className="reveal reveal-delay-2 mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-                Strategie und Leitplanken von uns – Umsetzung durch euer Team.
-                Optional digitalisieren wir Prozesse und Schnittstellen, damit
-                Marketing messbar und automatisiert läuft.
-              </p>
-              <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-3">
-                <Button href="/kontakt" size="lg">
-                  Kostenloses Erstgespräch
-                </Button>
-                <Button href="/online-marketing/audit" variant="light" size="lg">
-                  Zum OM Audit
-                </Button>
-              </div>
+      <section className="relative overflow-hidden bg-hero-plane">
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] lg:block">
+          <BrandGeometry className="float-soft absolute -right-8 top-1/2 h-[min(78vh,560px)] w-auto -translate-y-1/2 opacity-90" />
+        </div>
+
+        <Container className="relative flex min-h-[calc(100svh-5rem)] flex-col justify-center pb-16 pt-12 lg:pb-24 lg:pt-16">
+          <div className="max-w-xl">
+            <div className="reveal">
+              <BrandLogo href={null} size="hero" priority />
             </div>
 
-            <div className="reveal reveal-delay-2 relative min-h-[280px] overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:min-h-[340px] sm:p-8">
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_40%,rgba(192,106,58,0.18))]" />
-              <div className="relative flex h-full flex-col justify-between">
-                <div>
-                  <Eyebrow>Prinzip</Eyebrow>
-                  <p className="mt-3 font-display text-3xl text-white">
-                    Einzelmaßnahmen wirken selten. Das Zusammenspiel entscheidet.
-                  </p>
-                </div>
-                <ul className="mt-8 space-y-3 text-sm text-white/75">
-                  <li>Fundament → Kanäle in Handlungen → Optimierung</li>
-                  <li>Nutzerfokus statt Bauchgefühl</li>
-                  <li>Know-how bleibt in eurer Abteilung</li>
-                </ul>
-              </div>
+            <h1 className="reveal reveal-delay-1 mt-10 font-display text-[clamp(2.5rem,7vw,4.25rem)] leading-[0.98] text-forest text-balance">
+              {site.claim}
+            </h1>
+
+            <p className="reveal reveal-delay-2 mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
+              Online Marketing Beratung für Marketingabteilungen – Strategie von
+              uns, Umsetzung durch euer Team.
+            </p>
+
+            <div className="reveal reveal-delay-3 mt-9 flex flex-wrap gap-3">
+              <Button href="/kontakt" size="lg">
+                Kostenloses Erstgespräch
+              </Button>
+              <Button href="/online-marketing/audit" variant="outline" size="lg">
+                Zum OM Audit
+              </Button>
             </div>
-          </Container>
-        </div>
-        <div className="h-1 origin-left scale-x-100 bg-copper draw-line" />
+          </div>
+
+          <div className="reveal reveal-delay-2 mt-14 lg:hidden">
+            <BrandGeometry className="mx-auto h-48 w-full max-w-md opacity-90" />
+          </div>
+        </Container>
+
+        <div className="h-1 origin-left bg-copper draw-line" />
       </section>
 
       <Section>
@@ -76,11 +66,12 @@ export default function HomePage() {
             title="Wenn Online Marketing sich anfühlt wie Blindflug"
             lead="Erfolgreiches Online Marketing ist nicht der LinkedIn-Post am Freitag, das grüne SEO-Häkchen oder drei planlose Anzeigen."
           />
-          <div className="mt-10 grid gap-3 md:grid-cols-2">
-            {painHooks.slice(0, 4).map((pain) => (
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {painHooks.slice(0, 4).map((pain, i) => (
               <blockquote
                 key={pain}
-                className="border-l-2 border-copper/70 bg-white/50 px-5 py-4 text-sm leading-relaxed text-ink-soft sm:text-base"
+                className="border-l-[3px] border-copper pl-5 text-base leading-relaxed text-ink-soft"
+                style={{ animationDelay: `${0.05 * i}s` }}
               >
                 „{pain}“
               </blockquote>
@@ -89,7 +80,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section className="bg-sand/60">
+      <Section className="bg-sand/70">
         <Container>
           <SectionHeading
             eyebrow="Drei klare Wege"
@@ -118,7 +109,7 @@ export default function HomePage() {
 
       <Section>
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
             <SectionHeading
               eyebrow="Investment"
               title="Beispielpreise – transparent und modular"
@@ -132,7 +123,7 @@ export default function HomePage() {
               ]}
             />
           </div>
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {packages.map((pkg, index) => (
               <PriceCard key={pkg.name} {...pkg} featured={index === 1} />
             ))}
@@ -140,7 +131,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section className="bg-forest text-white">
+      <Section className="bg-band-forest text-white">
         <Container>
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>

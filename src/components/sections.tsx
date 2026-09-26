@@ -90,22 +90,26 @@ export function CtaBand({
   return (
     <Section className="pb-24 pt-8">
       <Container>
-        <div className="relative overflow-hidden rounded-3xl bg-hero-plane px-6 py-10 text-white sm:px-10 sm:py-12">
-          <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-copper/20 blur-2xl" />
+        <div className="relative overflow-hidden border border-line bg-cream px-6 py-12 sm:px-12 sm:py-14">
+          <div
+            className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-copper/15 blur-3xl"
+            aria-hidden
+          />
           <div className="relative max-w-2xl">
-            <h2 className="font-display text-3xl sm:text-4xl">{title}</h2>
-            <p className="mt-4 text-base text-white/80 sm:text-lg">{lead}</p>
+            <h2 className="font-display text-3xl text-forest sm:text-4xl">{title}</h2>
+            <p className="mt-4 text-base text-ink-soft sm:text-lg">{lead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href={primaryHref} size="lg">
                 {primaryLabel}
               </Button>
               {secondaryHref && secondaryLabel ? (
-                <Button href={secondaryHref} variant="light" size="lg">
+                <Button href={secondaryHref} variant="outline" size="lg">
                   {secondaryLabel}
                 </Button>
               ) : null}
             </div>
           </div>
+          <div className="absolute bottom-0 left-0 h-1 w-full origin-left bg-copper draw-line" />
         </div>
       </Container>
     </Section>
@@ -136,10 +140,10 @@ export function PriceCard({
   return (
     <article
       className={cn(
-        "flex h-full flex-col rounded-2xl border p-6 sm:p-7",
+        "flex h-full flex-col border p-6 sm:p-7",
         featured
-          ? "border-copper/40 bg-forest text-mist shadow-[0_30px_60px_-40px_rgba(20,40,32,0.8)]"
-          : "border-line bg-white/70",
+          ? "border-forest bg-forest text-mist"
+          : "border-line bg-cream",
       )}
     >
       <div className="flex items-start justify-between gap-3">
@@ -152,7 +156,7 @@ export function PriceCard({
           {name}
         </h3>
         {featured ? (
-          <span className="rounded-full bg-copper px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
+          <span className="bg-copper px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
             Empfohlen
           </span>
         ) : null}
@@ -208,7 +212,7 @@ export function LinkTile({
   return (
     <Link
       href={href}
-      className="group block border-b border-line py-5 transition hover:border-copper"
+      className="group block border-b border-line py-6 transition hover:border-copper"
     >
       <div className="flex items-baseline justify-between gap-4">
         <h3 className="font-display text-2xl text-forest transition group-hover:text-copper-deep">
@@ -236,7 +240,7 @@ export function CheckList({
         <li key={item} className="flex gap-3 text-sm sm:text-base">
           <span
             className={cn(
-              "mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold",
+              "mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center text-[11px] font-bold",
               tone === "light"
                 ? "bg-white/15 text-copper"
                 : "bg-forest/10 text-forest",

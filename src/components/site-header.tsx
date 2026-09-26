@@ -50,30 +50,30 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b bg-paper/95 backdrop-blur-md transition-shadow duration-300",
-        scrolled ? "border-line shadow-sm" : "border-line/60",
+        "sticky top-0 z-50 border-b bg-cream/90 backdrop-blur-md transition-[box-shadow,border-color] duration-300",
+        scrolled ? "border-line shadow-[0_8px_30px_-18px_rgba(37,65,48,0.35)]" : "border-transparent",
       )}
     >
-      <div className="mx-auto flex min-h-[4.5rem] max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <BrandLogo priority />
+      <div className="mx-auto flex min-h-[5rem] max-w-6xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
+        <BrandLogo priority size="md" />
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Hauptnavigation">
           {mainNav.map((item) => (
             <div key={item.label} className="group relative">
               <Link
                 href={item.href}
-                className="inline-flex h-10 items-center rounded-md px-3 text-sm font-medium text-ink-soft transition hover:bg-forest/5 hover:text-forest"
+                className="inline-flex h-10 items-center px-3 text-sm font-medium text-ink-soft transition hover:text-forest"
               >
                 {item.label}
               </Link>
               {item.children ? (
-                <div className="invisible absolute left-0 top-full z-40 w-80 translate-y-2 opacity-0 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                  <div className="mt-2 overflow-hidden rounded-xl border border-line bg-paper p-2 shadow-[0_24px_60px_-30px_rgba(20,40,32,0.45)]">
+                <div className="invisible absolute left-0 top-full z-40 w-80 translate-y-1 opacity-0 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div className="mt-2 border border-line bg-cream p-2 shadow-[0_24px_50px_-28px_rgba(37,65,48,0.4)]">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block rounded-lg px-3 py-2.5 transition hover:bg-sand"
+                        className="block px-3 py-2.5 transition hover:bg-sand"
                       >
                         <span className="block text-sm font-semibold text-forest">
                           {child.label}
@@ -100,7 +100,7 @@ export function SiteHeader() {
 
         <details ref={detailsRef} className="group relative lg:hidden">
           <summary
-            className="flex h-11 w-11 list-none cursor-pointer items-center justify-center rounded-md border border-line bg-paper text-forest marker:content-none [&::-webkit-details-marker]:hidden"
+            className="flex h-11 w-11 list-none cursor-pointer items-center justify-center border border-line bg-cream text-forest marker:content-none [&::-webkit-details-marker]:hidden"
             aria-label="Menü"
           >
             <span className="relative block h-3.5 w-5" aria-hidden>
@@ -110,7 +110,7 @@ export function SiteHeader() {
             </span>
           </summary>
 
-          <div className="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(100vw-2rem,22rem)] rounded-2xl border border-line bg-paper p-4 shadow-[0_24px_60px_-30px_rgba(20,40,32,0.55)]">
+          <div className="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(100vw-2rem,22rem)] border border-line bg-cream p-4 shadow-[0_24px_50px_-28px_rgba(37,65,48,0.45)]">
             <nav className="flex flex-col" aria-label="Mobile Navigation">
               {mainNav.map((item) => (
                 <div

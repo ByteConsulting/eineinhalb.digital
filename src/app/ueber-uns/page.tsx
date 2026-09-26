@@ -77,7 +77,7 @@ export default function AboutPage() {
 
       <Section>
         <Container className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-          <BrandLogo href={null} className="scale-110" />
+          <BrandLogo href={null} size="lg" />
           <p className="max-w-2xl text-ink-soft">
             <strong className="text-forest">ein-ein-halb digital</strong> steht
             für Klarheit zwischen Strategie und Umsetzung – halb Theorie, halb

@@ -35,16 +35,16 @@ const footerColumns = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-line bg-forest-deep text-mist">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_2fr] lg:px-8">
+    <footer className="border-t border-line bg-sand/80 text-ink">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.15fr_2fr] lg:px-8">
         <div>
-          <BrandLogo inverted href="/" />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-mist/75">
+          <BrandLogo href="/" size="lg" />
+          <p className="mt-6 max-w-sm text-sm leading-relaxed text-ink-soft">
             {site.claim} Online Marketing Beratung für Marketingabteilungen –
             Strategie, Sparring und technische Umsetzung.
           </p>
-          <p className="mt-4 text-sm text-mist/60">
-            <a className="hover:text-copper" href={`mailto:${site.email}`}>
+          <p className="mt-4 text-sm">
+            <a className="font-medium text-forest underline-offset-4 hover:text-copper hover:underline" href={`mailto:${site.email}`}>
               {site.email}
             </a>
           </p>
@@ -61,7 +61,7 @@ export function SiteFooter() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-mist/80 transition hover:text-white"
+                      className="text-sm text-ink-soft transition hover:text-forest"
                     >
                       {link.label}
                     </Link>
@@ -72,8 +72,8 @@ export function SiteFooter() {
           ))}
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-mist/50 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div className="border-t border-line">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-charcoal/70 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} {site.name}</p>
           <p>Beispielpreise – finale Pakete nach Scope.</p>
         </div>
