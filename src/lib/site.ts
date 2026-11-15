@@ -8,16 +8,54 @@ export const site = {
   phone: "+49 (0) 221 0000000",
 };
 
+export type NavSubItem = {
+  label: string;
+  href: string;
+  description?: string;
+};
+
+export type NavCluster = {
+  title?: string;
+  items: NavSubItem[];
+};
+
 export type NavItem = {
   label: string;
   href: string;
-  children?: { label: string; href: string; description?: string }[];
+  megaTitle?: string;
+  megaDescription?: string;
+  clusters?: NavCluster[];
+  children?: NavSubItem[];
 };
 
 export const mainNav: NavItem[] = [
   {
     label: "Einstiege",
     href: "/online-marketing/audit",
+    megaTitle: "Einstiegsmöglichkeiten",
+    megaDescription:
+      "Schnelle Klarheit ohne langes Vorgeplänkel: Wir durchleuchten euren Status Quo, decken echte Hebel auf und liefern eine belastbare Datengrundlage.",
+    clusters: [
+      {
+        items: [
+          {
+            label: "Online Marketing Audit",
+            href: "/online-marketing/audit",
+            description: "Status Quo über alle relevanten Kanäle",
+          },
+          {
+            label: "SEO/GEO & Content Audit",
+            href: "/online-marketing/seo-audit",
+            description: "Organische Sichtbarkeit und KI-Readiness prüfen",
+          },
+          {
+            label: "Code & Automatisierung",
+            href: "/code",
+            description: "Website, Schnittstellen & KI-Workflows",
+          },
+        ],
+      },
+    ],
     children: [
       {
         label: "Online Marketing Audit",
@@ -39,6 +77,46 @@ export const mainNav: NavItem[] = [
   {
     label: "Leistungen",
     href: "/online-marketing",
+    megaTitle: "Unsere Leistungen",
+    megaDescription:
+      "Ganzheitliche Beratung und technische Umsetzung: Strategie, Sichtbarkeit und Schnittstellen – modular, datenbasiert und ohne Agentur-Overhead.",
+    clusters: [
+      {
+        title: "Online Marketing",
+        items: [
+          {
+            label: "OM Strategie / Fundament",
+            href: "/online-marketing/strategie",
+            description: "Vom Status Quo zur 12-Monate-Roadmap",
+          },
+          {
+            label: "SEO/GEO & Content",
+            href: "/online-marketing/seo-geo-content",
+            description: "Organisch sichtbar in Google und KI-Suche",
+          },
+          {
+            label: "Website-Relaunch",
+            href: "/online-marketing/relaunch",
+            description: "Relaunch mit strategischem Fundament",
+          },
+        ],
+      },
+      {
+        title: "Code & Entwicklung",
+        items: [
+          {
+            label: "Websites & Frontend",
+            href: "/code",
+            description: "Performance-Builds entlang der Strategie",
+          },
+          {
+            label: "Schnittstellen & Automatisierung",
+            href: "/code",
+            description: "Workflows & Integrationen mit und ohne KI",
+          },
+        ],
+      },
+    ],
     children: [
       {
         label: "Online Marketing",
@@ -224,32 +302,26 @@ export const packages = [
 
 export const processSteps = [
   {
-    title: "Audit deiner aktuellen Situation",
-    body: "Wir durchleuchten den digitalen Fußabdruck: Website, Content, Social, Profile, Technik, Tracking und DSGVO-Basis.",
+    title: "1. Kick-off & Setup | Woche 1",
+    body: "Wir klären eure wirtschaftlichen Ziele und checken euer internes Setup. Ihr übergebt uns die Systemzugänge – und wir starten ohne langes Vorgeplänkel direkt in die Arbeit.",
   },
   {
-    title: "Wohin wollen wir?",
-    body: "Realistische Ziele, KPIs sowie Früh- und Spätindikatoren – Schluss mit Bauchgefühl.",
+    title: "2. Die Auditphase | Woche 2-4",
+    body: "Wir durchleuchten euer komplettes digitales Marketing datenbasiert und zu 100 % objektiv. Wir decken auf, wo aktuell Budget versickert und wo eure echten Hebel liegen.",
   },
   {
-    title: "Potenziale & Customer Journey",
-    body: "Nachfrage, Wettbewerb und die Reise eurer Nutzer – damit Angebote wirklich konvertieren.",
+    title: "3. Strategiephase | Woche 6-8",
+    body: "Wir übersetzen die Daten in einen konkreten Plan für euer Online Marketing. Ab sofort stellt ihr den User in den Mittelpunkt. Wir priorisieren Kanäle, definieren die Customer Journey und erstellen Konzepte, Briefings und Content-Pläne.",
   },
   {
-    title: "Kanal-Empfehlungen & Roadmap",
-    body: "Welche Kanäle, welche Handlungen, in welcher Reihenfolge – passend zu Ressourcen und Budget.",
-  },
-  {
-    title: "Begleitung der Umsetzung",
-    body: "Euer Team setzt um. Wir sparren, reporten, optimieren und halten die Spur.",
+    title: "4. Aktivierungsphase | ab Woche 9",
+    body: "Die Roadmap startet. Euer Team übernimmt das operative Steuer, wir halten euch den strategischen Rücken frei. Wir wachen über die KPIs, stehen als Sparringspartner für Rückfragen bereit und sichern die Qualität bei der Umsetzung.",
   },
 ];
 
 export const painHooks = [
-  "Wir machen irgendwie Social Media, aber so richtig klappt das nicht.",
-  "Die Website hat zu wenige Klicks, Leads oder Anfragen.",
-  "Die Chefetage ist nicht zufrieden mit den Ergebnissen im Online Marketing.",
-  "Eine langfristige Planung fürs Marketing haben wir gar nicht.",
-  "Wie die Website aussieht, bestimmt der Vertrieb.",
-  "Im Vertrieb steckt dreimal mehr Personal und Budget als im Marketing.",
+  "Über die Website kommen zu wenige Anfragen.",
+  "Eine langfristige Marketing-Planung haben wir nicht.",
+  "Das CMS ist veraltet, Zeit für einen Relaunch.",
+  "Social Media macht bei uns die Azubine.",
 ];

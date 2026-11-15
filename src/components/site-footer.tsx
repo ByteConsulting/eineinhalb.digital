@@ -4,29 +4,27 @@ import Link from "next/link";
 
 const footerColumns = [
   {
+    title: "Einstiege",
+    links: [
+      { href: "/online-marketing/audit", label: "OM Audit" },
+      { href: "/online-marketing/seo-audit", label: "SEO/GEO Audit" },
+    ],
+  },
+  {
     title: "Leistungen",
     links: [
-      { href: "/online-marketing", label: "Online Marketing" },
-      { href: "/online-marketing/strategie", label: "OM Strategie" },
+      { href: "/online-marketing/strategie", label: "Online Marketing Strategie" },
       { href: "/online-marketing/seo-geo-content", label: "SEO/GEO & Content" },
       { href: "/online-marketing/relaunch", label: "Relaunch Beratung" },
       { href: "/code", label: "Code & Automatisierung" },
     ],
   },
   {
-    title: "Einstiege",
+    title: "Kontakt & Info",
     links: [
-      { href: "/online-marketing/audit", label: "OM Audit" },
-      { href: "/online-marketing/seo-audit", label: "SEO Audit" },
-      { href: "/workshops", label: "Workshops" },
-      { href: "/newsletter/geo", label: "GEO-Newsletter" },
       { href: "/kontakt", label: "Kontakt" },
-    ],
-  },
-  {
-    title: "Unternehmen",
-    links: [
       { href: "/ueber-uns", label: "Über uns" },
+      { href: "/newsletter/geo", label: "GEO-Kurs Newsletter" },
       { href: "/impressum", label: "Impressum" },
       { href: "/datenschutz", label: "Datenschutz" },
     ],
@@ -44,7 +42,10 @@ export function SiteFooter() {
             Strategie, Sparring und technische Umsetzung.
           </p>
           <p className="mt-4 text-sm">
-            <a className="font-medium text-forest underline-offset-4 hover:text-copper hover:underline" href={`mailto:${site.email}`}>
+            <a
+              className="font-medium text-forest underline-offset-4 hover:text-copper hover:underline"
+              href={`mailto:${site.email}`}
+            >
               {site.email}
             </a>
           </p>

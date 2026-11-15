@@ -6,12 +6,13 @@ import {
   SectionHeading,
 } from "@/components/sections";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Online Marketing Beratung",
   description:
-    "Warum Website und Social nicht zünden – und wie strategisches Online Marketing Klarheit für 2–5 Jahre schafft.",
+    "Einstiegslösungen und strategische Bausteine für dein Online Marketing: Audits, Strategie, SEO/GEO, Relaunch und Workshops.",
 };
 
 export default function OnlineMarketingPage() {
@@ -19,84 +20,88 @@ export default function OnlineMarketingPage() {
     <>
       <Section className="pt-10 sm:pt-14">
         <Container>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-copper">
-            /online-marketing
-          </p>
-          <h1 className="mt-4 max-w-4xl font-display text-4xl leading-tight text-forest sm:text-5xl">
-            Online Marketing, das zusammenspielt – nicht nebeneinanderherläuft
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">
-            Warum bringt deine Website zu wenige Leads? Warum zünden die
-            Social-Media-Kanäle nicht und warum ist die Chefetage unzufrieden?
-            Erfolgreiches Online Marketing ist das langfristige Zusammenspiel der
-            richtigen Kanäle mit einem definierten Optimierungsprozess. Genau
-            diese Klarheit bringen wir in dein Unternehmen.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="/kontakt" size="lg">
-              Erstgespräch
-            </Button>
-            <Button href="/online-marketing/strategie" variant="outline" size="lg">
-              Zur Strategie
-            </Button>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-sand/50 pt-4">
-        <Container>
           <SectionHeading
             eyebrow="Einstiegslösungen"
+            eyebrowVariant="tag"
             title="Erst den Ist-Zustand verstehen"
           />
           <div className="mt-8">
             <LinkTile
               href="/online-marketing/audit"
               title="Online Marketing Audit"
-              description="Überblick über die aktuelle Situation im Online Marketing – datenbasierte Grundlage für Entscheidungen."
+              description="Überblick über die aktuelle Situation im Online Marketing – datenbasierte Grundlage für Entscheidungen, Ressourcen und Ziele."
             />
             <LinkTile
               href="/online-marketing/seo-audit"
               title="SEO/GEO & Content Audit"
-              description="Organische Sichtbarkeit, Content und Technik isoliert und ehrlich unter die Lupe nehmen."
+              description="Organische Sichtbarkeit und Content isoliert und ehrlich unter die Lupe nehmen. Wissen, was nötig ist, um die Sichtbarkeit wirklich zu steigern."
             />
           </div>
         </Container>
       </Section>
 
-      <Section>
+      <Section className="bg-sand/50">
         <Container>
           <SectionHeading
             eyebrow="Zukunftsfähig aufstellen"
-            title="Strategie, Sichtbarkeit, Relaunch"
-            lead="Wir planen die nächsten 2 bis 5 Jahre – im Rahmen eurer Ressourcen und Budgets."
+            eyebrowVariant="tag"
+            title="Nutzerorientiertes Online Marketing"
+            lead="Strategische Ausrichtung, Sichtbarkeit und Begleitung für Marketingteams."
           />
           <div className="mt-8">
             <LinkTile
               href="/online-marketing/strategie"
-              title="OM Strategie – Klarheit für dein Online Marketing"
-              description="Vom Status Quo über Ziele und Customer Journey bis zur Roadmap und Begleitung."
+              title="Nutzerorientiertes Online Marketing"
+              description="Wie plane ich unser Online Marketing? Welche Kanäle funktionieren wirklich? Was brauche ich, um langfristig erfolgreich zu sein? Customer Journey, Potenziale, Kanäle, Roadmap und Begleitung."
             />
             <LinkTile
               href="/online-marketing/seo-geo-content"
-              title="SEO/GEO/Content – sichtbar in Suchsystemen"
-              description="Website-Inhalte zielgerichtet auf Nutzer ausrichten – organisch und zukunftssicher."
+              title="SEO/GEO/Content"
+              description="Content zielgerichtet auf Nutzer ausrichten."
             />
             <LinkTile
               href="/online-marketing/relaunch"
               title="Website-Relaunch Beratung"
-              description="Schmerzfrei zur neuen Website – mit Briefing, QS und optionaler Umsetzung."
+              description="Schmerzfrei zur neuen Website."
             />
-            <LinkTile
-              href="/workshops"
-              title="OM Workshops"
-              description="Skills fürs Team: Strategie, SEO/GEO, Content und UX – praxisnah und maßgeschneidert."
-            />
-            <LinkTile
-              href="/newsletter/geo"
-              title="GEO-E-Mail-Kurs / Quick Check"
-              description="Kostenloser Einstieg: Zukunftssicher bei KI-Suche – mitmachen statt nur lesen."
-            />
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {/* Abgehobenes Modul: OM Workshops */}
+            <div className="relative overflow-hidden rounded-2xl border border-line bg-paper p-6 sm:p-8 transition hover:border-copper">
+              <span className="inline-block rounded-md bg-copper/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-copper-deep">
+                Workshop Modul
+              </span>
+              <h3 className="mt-4 font-display text-2xl text-forest">
+                OM Workshops
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-ink-soft sm:text-base">
+                Skills fürs Team: Strategie, SEO/GEO, Content und UX – praxisnah und genau nach eurem Bedarf.
+              </p>
+              <div className="mt-6">
+                <Button href="/workshops" variant="outline" size="sm">
+                  Workshop zusammenstellen →
+                </Button>
+              </div>
+            </div>
+
+            {/* Eigenes Element: GEO Newsletter */}
+            <div className="relative overflow-hidden rounded-2xl border border-line bg-paper p-6 sm:p-8 transition hover:border-copper">
+              <span className="inline-block rounded-md bg-forest/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-forest">
+                Kostenloser Kurs
+              </span>
+              <h3 className="mt-4 font-display text-2xl text-forest">
+                Nerd-Wissen frei Haus: GEO-Newsletter
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-ink-soft sm:text-base">
+                Wie du dich auf die neuen Entwicklungen im Bereich KI-Suche vorbereiten kannst. Der 6 Wochen Kurs direkt in dein Postfach.
+              </p>
+              <div className="mt-6">
+                <Button href="/newsletter/geo" size="sm">
+                  Kostenlos anmelden →
+                </Button>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>

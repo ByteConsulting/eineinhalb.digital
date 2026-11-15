@@ -22,26 +22,27 @@ export default function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-hero-plane">
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] lg:block">
-          <BrandGeometry className="float-soft absolute -right-8 top-1/2 h-[min(78vh,560px)] w-auto -translate-y-1/2 opacity-90" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[50%] lg:block">
+          <BrandGeometry className="float-soft absolute -right-8 top-1/2 h-[min(60vh,460px)] w-auto -translate-y-1/2 opacity-90" />
         </div>
 
-        <Container className="relative flex min-h-[calc(100svh-5rem)] flex-col justify-center pb-16 pt-12 lg:pb-24 lg:pt-16">
+        <Container className="relative flex flex-col justify-center pb-12 pt-8 sm:pb-16 sm:pt-12 lg:pb-20 lg:pt-14">
           <div className="max-w-xl">
             <div className="reveal">
               <BrandLogo href={null} size="hero" priority />
             </div>
 
-            <h1 className="reveal reveal-delay-1 mt-10 font-display text-[clamp(2.5rem,7vw,4.25rem)] leading-[0.98] text-forest text-balance">
+            <h1 className="reveal reveal-delay-1 mt-8 font-display text-[clamp(2.25rem,6vw,3.75rem)] leading-[1.02] text-forest text-balance">
               {site.claim}
             </h1>
 
-            <p className="reveal reveal-delay-2 mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
-              Online Marketing Beratung für Marketingabteilungen – Strategie von
-              uns, Umsetzung durch euer Team.
+            <p className="reveal reveal-delay-2 mt-5 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
+              Ganzheitliche digitale Beratung: Du bekommst 15 Jahre Online
+              Marketing Leidenschaft und über 15 Jahre moderne
+              Software-Architektur Nerd-Skills. Wir sind Daniel und Torben.
             </p>
 
-            <div className="reveal reveal-delay-3 mt-9 flex flex-wrap gap-3">
+            <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-3">
               <Button href="/kontakt" size="lg">
                 Kostenloses Erstgespräch
               </Button>
@@ -51,8 +52,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="reveal reveal-delay-2 mt-14 lg:hidden">
-            <BrandGeometry className="mx-auto h-48 w-full max-w-md opacity-90" />
+          <div className="reveal reveal-delay-2 mt-10 lg:hidden">
+            <BrandGeometry className="mx-auto h-40 w-full max-w-md opacity-90" />
           </div>
         </Container>
 
@@ -62,9 +63,8 @@ export default function HomePage() {
       <Section>
         <Container>
           <SectionHeading
-            eyebrow="Kommt euch bekannt vor?"
+            eyebrow="Kommt dir das bekannt vor?"
             title="Wenn Online Marketing sich anfühlt wie Blindflug"
-            lead="Erfolgreiches Online Marketing ist nicht der LinkedIn-Post am Freitag, das grüne SEO-Häkchen oder drei planlose Anzeigen."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {painHooks.slice(0, 4).map((pain, i) => (
@@ -77,31 +77,39 @@ export default function HomePage() {
               </blockquote>
             ))}
           </div>
+          <div className="mt-10 rounded-2xl border border-line bg-paper p-6 sm:p-8">
+            <p className="text-base leading-relaxed text-ink-soft sm:text-lg">
+              Erfolgreiches Online Marketing ist nicht der LinkedIn-Post oder das
+              grüne SEO-Häkchen. Einzelne Maßnahmen erzielen keine Wirkung, nur
+              das geplante Zusammenspiel bringt Erfolg. Wenn sich Online Marketing
+              anfühlt wie Blindflug, dann fehlt die Klarheit.
+            </p>
+            <div className="mt-6">
+              <Button href="/kontakt" size="lg">
+                Jetzt den Blindflug beenden!
+              </Button>
+            </div>
+          </div>
         </Container>
       </Section>
 
       <Section className="bg-sand/70">
         <Container>
           <SectionHeading
-            eyebrow="Drei klare Wege"
-            title="Einstieg, Klarheit oder Umsetzung"
+            eyebrow="Zwei klare Wege"
+            title="Online Marketing oder Software Architektur"
             lead="Je nachdem, wo ihr steht – wir holen euch genau dort ab."
           />
           <div className="mt-10">
             <LinkTile
-              href="/online-marketing/audit"
-              title="Einstieg: Audit"
-              description="Status Quo, Potenziale und eine belastbare Datengrundlage – Ergebnis gehört euch."
-            />
-            <LinkTile
-              href="/online-marketing/strategie"
-              title="Klarheit: OM Strategie"
-              description="Roadmap für 12+ Monate, Sparring bei der Umsetzung, Know-how-Transfer ins Team."
+              href="/online-marketing"
+              title="Nutzerorientiertes Online Marketing"
+              description="Wir übersetzen Ziele in klare Roadmaps und bauen das nötige Know-how direkt in deiner Abteilung auf. Website, SEO, Content, Social Media, Conversion Rate Optimierung"
             />
             <LinkTile
               href="/code"
-              title="Umsetzung: Code & Automatisierung"
-              description="Website-Build entlang der Strategie – plus individuelle Schnittstellen, mit und ohne KI."
+              title="Software Architektur"
+              description="Dein Sparringspartner für komplexe IT-Herausforderungen, Software-Konzepte und reibungslose Schnittstellen."
             />
           </div>
         </Container>
@@ -112,14 +120,14 @@ export default function HomePage() {
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
             <SectionHeading
               eyebrow="Investment"
-              title="Beispielpreise – transparent und modular"
+              title="Du bekommst"
               lead="Finale Pakete hängen von Scope und Ressourcen ab. Die Zahlen unten sind realistische Orientierungen für den Soft-Launch."
             />
             <CheckList
               items={[
-                "Keine starren Retainer mit Upselling-Agenda",
-                "Audit-Ergebnis gehört euch – intern weiterarbeiten möglich",
-                "Begleitung erst, wenn Umsetzung und Wirkung Zeit brauchen",
+                "Ungeschönte Beratung und konkrete Maßnahmen",
+                "Keine Upselling-Agenda oder Agentur im Hintergrund",
+                "Expertise und Know-How Inhouse aufbauen",
               ]}
             />
           </div>
@@ -139,27 +147,50 @@ export default function HomePage() {
                 Für wen
               </p>
               <h2 className="mt-3 font-display text-3xl sm:text-4xl">
-                Marketingabteilungen mit Ressourcen und Hunger nach Klarheit
+                Wenn du endlich einen klaren Plan für echte Ergebnisse willst
               </h2>
-              <p className="mt-4 text-white/75">
-                Startups, Mittelstand, Konzerne – solange Marketing nicht „die
-                Azubine“ ist und Entscheidungen datenbasierter werden sollen.
-              </p>
+              <div className="mt-4 space-y-2 text-white/80">
+                <p>Wenn du Marketing nicht als Side-Quest betrachtest</p>
+                <p>Wenn du Entscheidungen datenbasierter treffen willst</p>
+              </div>
             </div>
             <CheckList
               tone="light"
               items={[
-                "Marketingleitung, CMO, Online Marketing Manager",
-                "Wunsch nach Input, Impulsen und Skill-Erweiterung",
-                "Bereitschaft zu Roadmap, Reporting und Optimierung",
-                "Optional: technische Digitalisierung der Marketing-Prozesse",
+                "Du bist Marketingleitung, CMO oder Online Marketing Manager",
+                "Du hast den Wunsch nach Input, Impulsen und Skill-Erweiterung",
+                "Du suchst nicht nach Full-Service, du brauchst gezielten Deep Dive",
               ]}
             />
           </div>
         </Container>
       </Section>
 
-      <CtaBand secondaryHref="/online-marketing" secondaryLabel="Leistungen ansehen" />
+      <CtaBand
+        title="Lass uns den Blindflug beenden"
+        lead="Kostenloses Erstgespräch – wir schauen uns eure Situation an und sagen klar, welche Schritte angegangen werden müssen."
+      >
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-xl border border-line bg-white/70 p-4">
+            <p className="text-sm font-semibold text-forest">
+              Du brauchst Online Marketing Beratung?
+            </p>
+            <p className="mt-1 text-sm text-ink-soft">Melde dich bei Torben</p>
+            <Button href="/kontakt" className="mt-3 w-full" size="sm">
+              Torben kontaktieren
+            </Button>
+          </div>
+          <div className="rounded-xl border border-line bg-white/70 p-4">
+            <p className="text-sm font-semibold text-forest">
+              Du brauchst Beratung für Software?
+            </p>
+            <p className="mt-1 text-sm text-ink-soft">Melde dich bei Daniel</p>
+            <Button href="/kontakt" variant="outline" className="mt-3 w-full" size="sm">
+              Daniel kontaktieren
+            </Button>
+          </div>
+        </div>
+      </CtaBand>
     </>
   );
 }

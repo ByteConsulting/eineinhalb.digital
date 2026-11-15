@@ -33,7 +33,20 @@ export function Section({
   );
 }
 
-export function Eyebrow({ children }: { children: ReactNode }) {
+export function Eyebrow({
+  children,
+  variant = "text",
+}: {
+  children: ReactNode;
+  variant?: "text" | "tag";
+}) {
+  if (variant === "tag") {
+    return (
+      <span className="inline-block rounded-md bg-forest/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-forest">
+        {children}
+      </span>
+    );
+  }
   return (
     <p className="text-xs font-semibold uppercase tracking-[0.22em] text-copper">
       {children}
@@ -43,18 +56,20 @@ export function Eyebrow({ children }: { children: ReactNode }) {
 
 export function SectionHeading({
   eyebrow,
+  eyebrowVariant = "text",
   title,
   lead,
   align = "left",
 }: {
   eyebrow?: string;
+  eyebrowVariant?: "text" | "tag";
   title: string;
   lead?: string;
   align?: "left" | "center";
 }) {
   return (
     <div className={cn(align === "center" && "mx-auto max-w-3xl text-center")}>
-      {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
+      {eyebrow ? <Eyebrow variant={eyebrowVariant}>{eyebrow}</Eyebrow> : null}
       <h2
         className={cn(
           "font-display text-3xl leading-tight text-forest sm:text-4xl",
@@ -75,17 +90,21 @@ export function SectionHeading({
 export function CtaBand({
   title = "Lass uns den Blindflug beenden",
   lead = "Kostenloses Erstgespräch – wir schauen uns eure Situation an und sagen klar, was als Nächstes Sinn ergibt.",
+  signoff,
   primaryHref = "/kontakt",
   primaryLabel = "Erstgespräch vereinbaren",
   secondaryHref,
   secondaryLabel,
+  children,
 }: {
   title?: string;
   lead?: string;
+  signoff?: string;
   primaryHref?: string;
   primaryLabel?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
+  children?: ReactNode;
 }) {
   return (
     <Section className="pb-24 pt-8">
@@ -98,16 +117,25 @@ export function CtaBand({
           <div className="relative max-w-2xl">
             <h2 className="font-display text-3xl text-forest sm:text-4xl">{title}</h2>
             <p className="mt-4 text-base text-ink-soft sm:text-lg">{lead}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href={primaryHref} size="lg">
-                {primaryLabel}
-              </Button>
-              {secondaryHref && secondaryLabel ? (
-                <Button href={secondaryHref} variant="outline" size="lg">
-                  {secondaryLabel}
+            {signoff ? (
+              <p className="mt-4 font-display text-lg text-copper-deep whitespace-pre-line">
+                {signoff}
+              </p>
+            ) : null}
+            {children ? (
+              <div className="mt-8">{children}</div>
+            ) : (
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href={primaryHref} size="lg">
+                  {primaryLabel}
                 </Button>
-              ) : null}
-            </div>
+                {secondaryHref && secondaryLabel ? (
+                  <Button href={secondaryHref} variant="outline" size="lg">
+                    {secondaryLabel}
+                  </Button>
+                ) : null}
+              </div>
+            )}
           </div>
           <div className="absolute bottom-0 left-0 h-1 w-full origin-left bg-copper draw-line" />
         </div>
